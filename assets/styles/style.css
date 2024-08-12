@@ -1,0 +1,60 @@
+body{
+    background-color: #F5EFE7;
+}
+
+@font-face {
+    font-family: Poppins;
+    src: url(Poppins.ttf);
+}
+
+@font-face {
+    font-family: AbhayaLibre-SemiBold;
+    src: url(AbhayaLibre-SemiBold.ttf);
+}
+
+label {
+    color: #213555;
+    font-family: 'Poppins';
+}
+
+input, textarea, option, select {
+    font-family: 'Poppins';
+    background-color: #F1F3F6 !important;
+    width: 500px;
+    min-width: 500px !important;
+}
+
+button {
+    color : white !important;
+    font-family: 'Poppins' !important;
+    background-color: #213555 !important;
+}
+
+.nav-text {
+    color:#4F709C; 
+    font-family: 'AbhayaLibre-SemiBold';
+    font-size: 21px;
+    text-align: center;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.form-holder {
+    width :fit-content;
+    background-color: white;
+    padding: 2%;
+    padding-inline: 4%;
+    border-radius: 2%;
+}
+
+.error-class {
+    border-color: #FF0000;
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(255, 0, 0, 0.6);
+}
+

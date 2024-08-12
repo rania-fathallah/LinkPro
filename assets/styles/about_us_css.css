@@ -1,0 +1,30 @@
+.social-link {
+  width: 30px;
+  height: 30px;
+  border: 1px solid #F5EFE7;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #F5EFE7;
+  border-radius: 50%;
+  transition: all 0.3s;
+  font-size: 0.9rem;
+   }
+
+   .social-link:hover,
+   .social-link:focus {
+      background: #F5EFE7;
+       text-decoration: none;
+       color: #F5EFE7;
+       }
+    #navstyle{
+      color: #4F709C; 
+      font-family: 'Abhaya Libre';
+      font-weight: 600; font-size: 18px;
+      margin-right: 40px;
+      
+    }
+    #navstyle:hover,
+    #navstyle:focus {
+       opacity:70% ;
+       }

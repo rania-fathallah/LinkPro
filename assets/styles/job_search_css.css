@@ -1,0 +1,68 @@
+#navstyle{
+    color: #4F709C; 
+    font-family: 'Abhaya Libre';
+    font-weight: 600; font-size: 18px;
+    margin-right: 40px;
+    
+  }
+  #navstyle:hover,
+  #navstyle:focus {
+     opacity:70% ;
+     }
+     #title{
+        font-family: 'Abhaya Libre';
+        color: #213555; 
+        justify-content: center;
+        padding: 2%;
+     }
+     #basic-addon1 {
+        background-color: #213555;
+        color: #ffffff;
+    }
+
+    #basic-addon1:hover {
+         background-color: #ffffff;
+         color:#213555 ;
+    }
+    .position{
+        width: 6rem;
+        background-color: #c5ccd4;
+        color:#213555;
+        padding-bottom: 6px;
+    }
+    .duration{
+        width: 6rem;
+        background-color: #dbd2cb;
+        color:#213555;
+        padding-bottom: 6px;
+    }
+
+    .checkbox-section {
+        max-height: 200px;
+        overflow-y: auto;
+        border: 1px solid #ddd;
+        padding: 10px;
+    }
+
+    .checkbox-section h2 {
+        position: sticky;
+        top: 0;
+        background-color: #F5EFE7;
+        z-index: 1;
+        padding: 5px;
+        color: #213555;
+    }
+
+    .checkbox-item {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 10px;
+    }
+
+    .checkbox-label {
+        margin-left: 10px;
+    }
+   form{
+    padding-bottom: 150px;
+   }

@@ -1,0 +1,26 @@
+#formulaire_update, #formulaire_ajout, #ajout_formation, #update_formation, #ajout_competence, #update_competence, #ajout_langue, #update_langue, #ajout_certification, #update_certification, #ajout_club, #update_club {
+    display: none;
+  }
+  #update_infos{
+    display: none;
+  }
+  .image-container {
+          position: relative;
+          display: inline-block;
+      }
+
+  .edit-icon {
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
+    background-color: #fff;
+    padding: 5px;
+    border-radius: 50%;
+    cursor: pointer;
+  }
+
+  #profile-img-upload {
+      display: none;
+  }
+  
+  

@@ -1,0 +1,1000 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>LinkPro</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <link
+    href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+    rel="stylesheet">
+
+  <link href="/vendor2/aos/aos.css" rel="stylesheet">
+  <link href="/vendor2/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="/vendor2/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="/vendor2/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="/vendor2/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="/vendor2/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+  <link href="/css/style2.css" rel="stylesheet">
+  <link href="/css/stylee.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css"
+    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+  <style>
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1;
+      left: 0;
+      top: 0;
+      padding-top: 100px;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0, 0, 0, 0.4);
+    }
+
+    .modal-content {
+      background-color: #fefefe;
+      margin: auto;
+      padding: 20px;
+      border: 1px solid #888;
+      width: 50%;
+    }
+
+
+    .close {
+      color: #aaaaaa;
+      float: right;
+      font-size: 28px;
+      font-weight: bold;
+    }
+
+    .close:hover,
+    .close:focus {
+      color: #000;
+      text-decoration: none;
+      cursor: pointer;
+    }
+  </style>
+</head>
+
+<body>
+
+  <i class="bi bi-list mobile-nav-toggle d-xl-none"></i>
+
+  <header id="header">
+    <div class="d-flex flex-column">
+
+      <div class="profile">
+        <% if (users.image) { %>
+          <% const base64Image=`data:image/png;base64,${users.image.toString('base64')}`; %>
+            <img src="<%= base64Image %>" alt="logo user" id="logo user" class="img-fluid rounded-circle" onclick="">
+            <% } else { %>
+              <img src="/img/not-found.jpg" alt="logo user" id="logo user" class="img-fluid rounded-circle">
+              <% } %>
+                <h1 class="text-light">
+                  <%= users.prenom %>
+                    <%= users.nom %>
+                </h1>
+      </div>
+
+      <nav id="navbar" class="nav-menu navbar">
+        <ul>
+          <li><a href="/" class="nav-link scrollto active"><i class="bx bx-home"></i> <span>Home</span></a></li>
+          <li><a href="/feed/" class="nav-link scrollto"><i class="bx bx-repost"></i> <span>Feeds</span></a></li>
+          <li><a href="/ent/about_us" class="nav-link scrollto"><i class="bx bx-info-circle"></i> <span>About Us</span></a></li>
+          <li><a href="/ent/job_search" class="nav-link scrollto"><i class="bx bx-briefcase"></i> <span>Job Search</span></a></li>
+          <li><a href="/ent/" class="nav-link scrollto"><i class="bx bx-command"></i> <span>Enterprise</span></a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+
+    <section id="breadcrumbs" class="breadcrumbs">
+      <div class="container row">
+        <div class="d-flex justify-content-between align-items-center col-11">
+          <h2>
+            <%= users.titre %>
+          </h2>
+        </div>
+        <div class="col">
+          <a href="/">
+            <svg xmlns="http://www.w3.org/2000/svg" height="24" width="24"
+              viewBox="0 0 512 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
+              <path fill="#000000"
+                d="M377.9 105.9L500.7 228.7c7.2 7.2 11.3 17.1 11.3 27.3s-4.1 20.1-11.3 27.3L377.9 406.1c-6.4 6.4-15 9.9-24 9.9c-18.7 0-33.9-15.2-33.9-33.9l0-62.1-128 0c-17.7 0-32-14.3-32-32l0-64c0-17.7 14.3-32 32-32l128 0 0-62.1c0-18.7 15.2-33.9 33.9-33.9c9 0 17.6 3.6 24 9.9zM160 96L96 96c-17.7 0-32 14.3-32 32l0 256c0 17.7 14.3 32 32 32l64 0c17.7 0 32 14.3 32 32s-14.3 32-32 32l-64 0c-53 0-96-43-96-96L0 128C0 75 43 32 96 32l64 0c17.7 0 32 14.3 32 32s-14.3 32-32 32z" />
+            </svg>
+          </a>
+        </div>
+    </section>
+
+    <section id="portfolio-details" class="portfolio-details">
+      <div class="container">
+        <div class="row gy-4">
+          <div class="col-lg-8">
+            <% if(users.description !=="" ) {%>
+              <section id="about" class="about">
+                <div class="container">
+                  <div class="section-title col-11">
+                    <h2>About</h2>
+                    <p>
+                      <%= users.description %>
+                    </p>
+                  </div>
+                </div>
+              </section>
+              <%}%>
+
+                <script src="/js/experiences.js"></script>
+                <!-- ======= Experience Section ======= -->
+                <section id="about" class="about">
+                  <div class="container">
+
+                    <div class="section-title">
+                      <h2>Experience
+                        <a href="#" onclick="ajouterExperience()">
+                          <svg xmlns="http://www.w3.org/2000/svg" height="16" width="16" viewBox="0 0 448 512">
+                            <path fill="#295cae"
+                              d="M64 32C28.7 32 0 60.7 0 96V416c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V96c0-35.3-28.7-64-64-64H64zM200 344V280H136c-13.3 0-24-10.7-24-24s10.7-24 24-24h64V168c0-13.3 10.7-24 24-24s24 10.7 24 24v64h64c13.3 0 24 10.7 24 24s-10.7 24-24 24H248v64c0 13.3-10.7 24-24 24s-24-10.7-24-24z" />
+                          </svg>
+                        </a>
+                      </h2>
+                    </div>
+                    <% if(users.experiences.length> 0 ){%>
+                      <% for(var i=0 ; i < users.experiences.length; i++) {%>
+                        <div class="row my-3">
+                          <div class="col-lg-4" data-aos="fade-right">
+                            <% if (users.experiences[i].logo) { %>
+                              <% const
+                                base64Image=`data:image/png;base64,${users.experiences[i].logo.toString('base64')}`; %>
+                                <img src="<%= base64Image %>" class="img-fluid" alt="logo entreprise">
+                                <% } else { %>
+                                  <img src="/img/not-found.jpg" class="img-fluid" alt="">
+                                  <% } %>
+
+                          </div>
+
+                          <div class="col-lg-8 pt-4 pt-lg-0 content" data-aos="fade-left">
+                            <h3>
+                              <%= users.experiences[i].intitule %>
+                                <a href="#"
+                                  onclick="modifierExperience('<%= users.experiences[i]._id %>','<%= users.experiences[i].intitule %>','<%= users.experiences[i].employeur %>','<%= users.experiences[i].actuel %>','<%= users.experiences[i].debut %>','<%= users.experiences[i].fin %>','<%= users.experiences[i].lieu %>','<%= users.experiences[i].description %>')">
+                                  <svg xmlns="http://www.w3.org/2000/svg" height="16" width="16" viewBox="0 0 512 512">
+                                    <path fill="#2d68cd"
+                                      d="M441 58.9L453.1 71c9.4 9.4 9.4 24.6 0 33.9L424 134.1 377.9 88 407 58.9c9.4-9.4 24.6-9.4 33.9 0zM209.8 256.2L344 121.9 390.1 168 255.8 302.2c-2.9 2.9-6.5 5-10.4 6.1l-58.5 16.7 16.7-58.5c1.1-3.9 3.2-7.5 6.1-10.4zM373.1 25L175.8 222.2c-8.7 8.7-15 19.4-18.3 31.1l-28.6 100c-2.4 8.4-.1 17.4 6.1 23.6s15.2 8.5 23.6 6.1l100-28.6c11.8-3.4 22.5-9.7 31.1-18.3L487 138.9c28.1-28.1 28.1-73.7 0-101.8L474.9 25C446.8-3.1 401.2-3.1 373.1 25zM88 64C39.4 64 0 103.4 0 152V424c0 48.6 39.4 88 88 88H360c48.6 0 88-39.4 88-88V312c0-13.3-10.7-24-24-24s-24 10.7-24 24V424c0 22.1-17.9 40-40 40H88c-22.1 0-40-17.9-40-40V152c0-22.1 17.9-40 40-40H200c13.3 0 24-10.7 24-24s-10.7-24-24-24H88z" />
+                                  </svg>
+                                </a>
+                                <a href="#"
+                                  onclick="supprimerExperience('<%= users.email %>','<%= users.experiences[i]._id %>')">
+                                  <svg xmlns="http://www.w3.org/2000/svg" height="16" width="14" viewBox="0 0 448 512">
+                                    <path fill="#2d68cd"
+                                      d="M135.2 17.7L128 32H32C14.3 32 0 46.3 0 64S14.3 96 32 96H416c17.7 0 32-14.3 32-32s-14.3-32-32-32H320l-7.2-14.3C307.4 6.8 296.3 0 284.2 0H163.8c-12.1 0-23.2 6.8-28.6 17.7zM416 128H32L53.2 467c1.6 25.3 22.6 45 47.9 45H346.9c25.3 0 46.3-19.7 47.9-45L416 128z" />
+                                  </svg>
+                                </a>
+                            </h3>
+
+                            <p><strong>
+                                <%= users.experiences[i].employeur %>
+                              </strong></p>
+                            <% if(users.experiences[i].actuel===0) {%>
+                              <p>From <%= users.experiences[i].debut.toLocaleDateString('fr-FR')%> to <%=
+                                    users.experiences[i].fin.toLocaleDateString('fr-FR')%>
+                              </p>
+                              <% }else{ %>
+                                <p>From <%= users.experiences[i].debut.toLocaleDateString('fr-FR')%> so far</p>
+                                <%}%>
+                                  <p>
+                                    <%= users.experiences[i].lieu%>
+                                  </p>
+                                  <p>
+                                    <%= users.experiences[i].description%>
+                                  </p>
+                          </div>
+                          <%}%>
+                            <%}%>
+                        </div>
+
+                        <form id="formulaire_ajout" method="post" action="/experience/ajout_experience" class="modal"
+                          onsubmit="return validateDates()" enctype="multipart/form-data">
+                          <div class="modal-content">
+                            <span class="close">&times;</span>
+
+                            <h2>Add an experience</h2>
+
+                            <input type="text" id="email_ajout_experience" name="email_ajout_experience"
+                              value='<%= users.email %>' hidden />
+
+                            <label for="intitule" class="form-label">Job title</label>
+                            <input type="text" id="intitule" name="intitule" class="form-control" required />
+
+                            <label for="logo" class="form-label">Download the employer logo</label>
+                            <input type="file" id="logo" name="logo" class="form-control" />
+
+                            <label for="employeur" class="form-label">Employer :</label>
+                            <input type="text" id="employeur" name="employeur" class="form-control" required />
+
+                            <div class="my-3">
+                              <input type="checkbox" id="poste_actuel" name="poste_actuel" class="me-3" value=""
+                                onchange="f()"><label> I currently hold this position</label>
+                            </div>
+
+                            <label for="debut" class="form-label">Start date</label>
+                            <input type="date" id="debut" name="debut" class="form-control" required />
+
+                            <label for="fin" class="form-label">End date</label>
+                            <input type="date" id="fin" name="fin" class="form-control" required />
+
+                            <label for="lieu" class="form-label">Company location</label>
+                            <input type="text" id="lieu" name="lieu" class="form-control" required />
+
+                            <label for="description" class="form-label">Description</label>
+                            <textarea class="form-control" id="description" name="description" rows="3"
+                              required></textarea>
+
+                            <button type="submit" class="btn btn-primary my-3">Save</button>
+                          </div>
+                        </form>
+
+                        <form id="formulaire_update" method="post" action="/experience/update_experience"
+                          onsubmit="return validateDatesEdit()" class="modal" enctype="multipart/form-data">
+                          <div class="modal-content">
+                            <span class="close">&times;</span>
+
+                            <h2>Edit experience :</h2>
+                            <input type="text" id="email_update_experience" name="email_update_experience"
+                              value='<%= users.email %>' hidden />
+                            <input type="text" id="id" name="id" class="form-control" hidden />
+
+                            <label for="intitule1" class="form-label">Job title</label>
+                            <input type="text" id="intitule1" name="intitule1" class="form-control" required />
+
+                            <label for="logo1" class="form-label">Download the employer logo</label>
+                            <input type="file" id="logo1" name="logo1" class="form-control" />
+
+                            <label for="employeur1" class="form-label">Employer</label>
+                            <input type="text" id="employeur1" name="employeur1" class="form-control" required />
+
+                            <div class="my-3">
+                              <input type="checkbox" id="poste_actuel1" name="poste_actuel1" value="" class="me-3"
+                                onchange="f1()"><label>J'occupe actuellement ce poste</label>
+                            </div>
+
+                            <label for="debut1" class="form-label">Start date</label>
+                            <input type="date" id="debut1" name="debut1" class="form-control" required />
+
+                            <label for="fin1" class="form-label">End date</label>
+                            <input type="date" id="fin1" name="fin1" class="form-control" required />
+
+                            <label for="lieu1" class="form-label">Company location</label>
+                            <input type="text" id="lieu1" name="lieu1" class="form-control" required />
+
+                            <label for="description1" class="form-label">Description</label>
+                            <textarea class="form-control" id="description1" name="description1" rows="3"
+                              required></textarea>
+
+                            <button type="submit" class="btn btn-primary my-3">Save</button>
+                          </div>
+                        </form>
+                </section><!-- End Experience Section -->
+
+                <script src="/js/formations.js"></script>
+                <!-- ======= Formation Section ======= -->
+                <section id="about" cl ass="about">
+                  <div class="container">
+                    <div class="section-title">
+                      <h2>Academic training
+                        <a href="#" onclick="ajouterFormation()">
+                          <svg xmlns="http://www.w3.org/2000/svg" height="16" width="16" viewBox="0 0 448 512">
+                            <path fill="#295cae"
+                              d="M64 32C28.7 32 0 60.7 0 96V416c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V96c0-35.3-28.7-64-64-64H64zM200 344V280H136c-13.3 0-24-10.7-24-24s10.7-24 24-24h64V168c0-13.3 10.7-24 24-24s24 10.7 24 24v64h64c13.3 0 24 10.7 24 24s-10.7 24-24 24H248v64c0 13.3-10.7 24-24 24s-24-10.7-24-24z" />
+                          </svg>
+                        </a>
+                      </h2>
+                    </div>
+
+                    <% if(users.formations.length> 0 ){%>
+                      <% for(var i=0 ; i < users.formations.length; i++) {%>
+                        <div class="my-3">
+                          <div class="col-lg-8 pt-4 pt-lg-0 content" data-aos="fade-left">
+                            <h3>
+                              <%= users.formations[i].etablissement %>
+                                <a href="#"
+                                  onclick="modifierFormation('<%= users.formations[i]._id %>','<%= users.formations[i].etablissement %>', '<%=users.formations[i].diplome%>','<%= users.formations[i].debut %>','<%= users.formations[i].fin %>','<%= users.formations[i].resultat %>','<%= users.formations[i].description %>')">
+                                  <svg xmlns="http://www.w3.org/2000/svg" height="16" width="16" viewBox="0 0 512 512">
+                                    <path fill="#2d68cd"
+                                      d="M441 58.9L453.1 71c9.4 9.4 9.4 24.6 0 33.9L424 134.1 377.9 88 407 58.9c9.4-9.4 24.6-9.4 33.9 0zM209.8 256.2L344 121.9 390.1 168 255.8 302.2c-2.9 2.9-6.5 5-10.4 6.1l-58.5 16.7 16.7-58.5c1.1-3.9 3.2-7.5 6.1-10.4zM373.1 25L175.8 222.2c-8.7 8.7-15 19.4-18.3 31.1l-28.6 100c-2.4 8.4-.1 17.4 6.1 23.6s15.2 8.5 23.6 6.1l100-28.6c11.8-3.4 22.5-9.7 31.1-18.3L487 138.9c28.1-28.1 28.1-73.7 0-101.8L474.9 25C446.8-3.1 401.2-3.1 373.1 25zM88 64C39.4 64 0 103.4 0 152V424c0 48.6 39.4 88 88 88H360c48.6 0 88-39.4 88-88V312c0-13.3-10.7-24-24-24s-24 10.7-24 24V424c0 22.1-17.9 40-40 40H88c-22.1 0-40-17.9-40-40V152c0-22.1 17.9-40 40-40H200c13.3 0 24-10.7 24-24s-10.7-24-24-24H88z" />
+                                  </svg>
+                                </a>
+                                <a href="#"
+                                  onclick="supprimerFormation('<%= users.email %>','<%= users.formations[i]._id %>')">
+                                  <svg xmlns="http://www.w3.org/2000/svg" height="16" width="14" viewBox="0 0 448 512">
+                                    <path fill="#2d68cd"
+                                      d="M135.2 17.7L128 32H32C14.3 32 0 46.3 0 64S14.3 96 32 96H416c17.7 0 32-14.3 32-32s-14.3-32-32-32H320l-7.2-14.3C307.4 6.8 296.3 0 284.2 0H163.8c-12.1 0-23.2 6.8-28.6 17.7zM416 128H32L53.2 467c1.6 25.3 22.6 45 47.9 45H346.9c25.3 0 46.3-19.7 47.9-45L416 128z" />
+                                  </svg>
+                                </a>
+                            </h3>
+
+                            <p><strong>
+                                <%= users.formations[i].diplome %>
+                              </strong></p>
+                            <p>From <%= users.formations[i].debut.toLocaleDateString('fr-FR')%> to <%=
+                                  users.formations[i].fin.toLocaleDateString('fr-FR')%>
+                            </p>
+                            <p>
+                              <%= users.formations[i].resultat%>
+                            </p>
+                            <p>
+                              <%= users.formations[i].description%>
+                            </p>
+                          </div>
+                          <%}%>
+                            <%}%>
+                        </div>
+
+                        <form id="ajout_formation" method="post" action="/formation/ajout_formation" class="modal"
+                          onsubmit="return validateDatesFormation()" enctype="application/x-www-form-urlencoded">
+                          <div class="modal-content">
+                            <span class="close">&times;</span>
+
+                            <h2>Add training :</h2>
+
+                            <input type="text" id="email_ajout_formation" name="email_ajout_formation"
+                              value='<%= users.email %>' hidden />
+
+                            <label for="etablissement" class="form-label">Institution</label>
+                            <input type="text" id="etablissement" name="etablissement" class="form-control" required />
+
+                            <label for="diplome" class="form-label">Degree</label>
+                            <input type="text" id="diplome" name="diplome" class="form-control" required />
+
+                            <label for="debut_formation" class="form-label">Start date</label>
+                            <input type="date" id="debut_formation" name="debut_formation" class="form-control"
+                              required />
+
+                            <label for="fin_formation" class="form-label">End date (or scheduled date)</label>
+                            <input type="date" id="fin_formation" name="fin_formation" class="form-control" required />
+
+                            <label for="resultat" class="form-label">Achieved result</label>
+                            <input type="text" id="resultat" name="resultat" class="form-control" required />
+
+                            <label for="description_formation" class="form-label">Description</label>
+                            <input type="text" id="description_formation" name="description_formation"
+                              class="form-control" required />
+
+                            <button type="submit" class="btn btn-primary my-3">Save</button>
+                          </div>
+                        </form>
+
+                        <form id="update_formation" method="post" action="/formation/update_formation" class="modal"
+                          onsubmit="return validateDatesFormationEdit()" enctype="application/x-www-form-urlencoded">
+                          <div class="modal-content">
+                            <span class="close">&times;</span>
+
+                            <h2>edit a training :</h2>
+
+                            <input type="text" id="id_formation" name="id_formation" class="form-control" hidden />
+                            <input type="text" id="email_update_formation" name="email_update_formation"
+                              value='<%= users.email %>' hidden />
+
+
+                            <label for="etablissement_update" class="form-label">Institution</label>
+                            <input type="text" id="etablissement_update" name="etablissement_update"
+                              class="form-control" required />
+
+                            <label for="diplome_update" class="form-label">Degree</label>
+                            <input type="text" id="diplome_update" name="diplome_update" class="form-control"
+                              required />
+
+                            <label for="debut_formation_update" class="form-label">Start date</label>
+                            <input type="date" id="debut_formation_update" name="debut_formation_update"
+                              class="form-control" required />
+
+                            <label for="fin_formation_update" class="form-label">End date (or scheduled date)</label>
+                            <input type="date" id="fin_formation_update" name="fin_formation_update"
+                              class="form-control" required />
+
+                            <label for="resultat_update" class="form-label">Achieved result</label>
+                            <input type="text" id="resultat_update" name="resultat_update" class="form-control"
+                              required />
+
+                            <label for="description_update" class="form-label">Description</label>
+                            <input type="text" id="description_update" name="description_update" class="form-control"
+                              required />
+
+                            <button type="submit" class="btn btn-primary my-3">Save</button>
+                          </div>
+                        </form>
+                </section><!-- End Formation Section -->
+
+                <script src="/js/competences.js"></script>
+                <!-- ======= Competences Section ======= -->
+                <section id="about" class="about">
+                  <div class="container">
+                    <div class="section-title">
+                      <h2>Skills
+                        <a href="#" onclick="ajouterCompetence()">
+                          <svg xmlns="http://www.w3.org/2000/svg" height="16" width="16" viewBox="0 0 448 512">
+                            <path fill="#295cae"
+                              d="M64 32C28.7 32 0 60.7 0 96V416c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V96c0-35.3-28.7-64-64-64H64zM200 344V280H136c-13.3 0-24-10.7-24-24s10.7-24 24-24h64V168c0-13.3 10.7-24 24-24s24 10.7 24 24v64h64c13.3 0 24 10.7 24 24s-10.7 24-24 24H248v64c0 13.3-10.7 24-24 24s-24-10.7-24-24z" />
+                          </svg>
+                        </a>
+                      </h2>
+                    </div>
+
+                    <% if(users.competences.length> 0 ){%>
+                      <% for(var i=0 ; i < users.competences.length; i++) {%>
+                        <div class="mb-5">
+                          <div class="col-lg-8 pt-4 pt-lg-0 content" data-aos="fade-left">
+                            <p>
+                              <%= users.competences[i].competence %>
+                                <a href="#"
+                                  onclick="modifierCompetence('<%= users.competences[i]._id %>','<%= users.competences[i].competence %>')">
+                                  <svg xmlns="http://www.w3.org/2000/svg" height="16" width="16" viewBox="0 0 512 512">
+                                    <path fill="#2d68cd"
+                                      d="M441 58.9L453.1 71c9.4 9.4 9.4 24.6 0 33.9L424 134.1 377.9 88 407 58.9c9.4-9.4 24.6-9.4 33.9 0zM209.8 256.2L344 121.9 390.1 168 255.8 302.2c-2.9 2.9-6.5 5-10.4 6.1l-58.5 16.7 16.7-58.5c1.1-3.9 3.2-7.5 6.1-10.4zM373.1 25L175.8 222.2c-8.7 8.7-15 19.4-18.3 31.1l-28.6 100c-2.4 8.4-.1 17.4 6.1 23.6s15.2 8.5 23.6 6.1l100-28.6c11.8-3.4 22.5-9.7 31.1-18.3L487 138.9c28.1-28.1 28.1-73.7 0-101.8L474.9 25C446.8-3.1 401.2-3.1 373.1 25zM88 64C39.4 64 0 103.4 0 152V424c0 48.6 39.4 88 88 88H360c48.6 0 88-39.4 88-88V312c0-13.3-10.7-24-24-24s-24 10.7-24 24V424c0 22.1-17.9 40-40 40H88c-22.1 0-40-17.9-40-40V152c0-22.1 17.9-40 40-40H200c13.3 0 24-10.7 24-24s-10.7-24-24-24H88z" />
+                                  </svg>
+                                </a>
+                                <a href="#"
+                                  onclick="supprimerCompetence('<%= users.email %>','<%= users.competences[i]._id %>')">
+                                  <svg xmlns="http://www.w3.org/2000/svg" height="16" width="14" viewBox="0 0 448 512">
+                                    <path fill="#2d68cd"
+                                      d="M135.2 17.7L128 32H32C14.3 32 0 46.3 0 64S14.3 96 32 96H416c17.7 0 32-14.3 32-32s-14.3-32-32-32H320l-7.2-14.3C307.4 6.8 296.3 0 284.2 0H163.8c-12.1 0-23.2 6.8-28.6 17.7zM416 128H32L53.2 467c1.6 25.3 22.6 45 47.9 45H346.9c25.3 0 46.3-19.7 47.9-45L416 128z" />
+                                  </svg>
+                                </a>
+                            </p>
+                            <hr>
+                          </div>
+                          <%}%>
+                            <%}%>
+                        </div>
+
+                        <form id="ajout_competence" method="post" action="/competence/ajout_competence" class="modal"
+                          enctype="application/x-www-form-urlencoded">
+                          <div class="modal-content">
+                            <span class="close">&times;</span>
+
+                            <h2>Add skill :</h2>
+
+                            <input type="text" id="email_ajout_competence" name="email_ajout_competence"
+                              value='<%= users.email %>' hidden />
+                            <label for="competence" class="form-label">Skill</label>
+                            <input type="text" id="competence" name="competence" class="form-control" required />
+
+                            <button type="submit" class="btn btn-primary my-3">Save</button>
+                          </div>
+                        </form>
+
+                        <form id="update_competence" method="post" action="/competence/update_competence" class="modal"
+                          enctype="application/x-www-form-urlencoded">
+                          <div class="modal-content">
+                            <span class="close">&times;</span>
+
+                            <h2>Edit a skill :</h2>
+                            <input type="text" id="id_competence" name="id_competence" class="form-control" hidden />
+                            <input type="text" id="email_update_competence" name="email_update_competence"
+                              value='<%= users.email %>' hidden />
+
+
+                            <label for="competence_update" class="form-label">Skill</label>
+                            <input type="text" id="competence_update" name="competence_update" class="form-control"
+                              required />
+
+                            <button type="submit" class="btn btn-primary my-3">Save</button>
+                          </div>
+                        </form>
+                </section><!-- End Competence Section -->
+
+                <script src="/js/langues.js"></script>
+                <!-- ======= Langues Section ======= -->
+                <section id="about" class="about">
+                  <div class="container">
+                    <div class="section-title">
+                      <h2>Languages
+                        <a href="#" onclick="ajouterLangue()">
+                          <svg xmlns="http://www.w3.org/2000/svg" height="16" width="16" viewBox="0 0 448 512">
+                            <path fill="#295cae"
+                              d="M64 32C28.7 32 0 60.7 0 96V416c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V96c0-35.3-28.7-64-64-64H64zM200 344V280H136c-13.3 0-24-10.7-24-24s10.7-24 24-24h64V168c0-13.3 10.7-24 24-24s24 10.7 24 24v64h64c13.3 0 24 10.7 24 24s-10.7 24-24 24H248v64c0 13.3-10.7 24-24 24s-24-10.7-24-24z" />
+                          </svg>
+                        </a>
+                      </h2>
+                    </div>
+                    <% if(users.langues.length> 0 ){%>
+                      <% for(var i=0 ; i < users.langues.length; i++) {%>
+                        <div class="mb-5">
+                          <div class="col-lg-8 pt-4 pt-lg-0 content" data-aos="fade-left">
+                            <p><strong>
+                                <%= users.langues[i].langue %>
+                              </strong>
+                              <a href="#"
+                                onclick="modifierLangue('<%= users.langues[i]._id %>','<%= users.langues[i].langue %>','<%= users.langues[i].niveau %>')">
+                                <svg xmlns="http://www.w3.org/2000/svg" height="16" width="16" viewBox="0 0 512 512">
+                                  <path fill="#2d68cd"
+                                    d="M441 58.9L453.1 71c9.4 9.4 9.4 24.6 0 33.9L424 134.1 377.9 88 407 58.9c9.4-9.4 24.6-9.4 33.9 0zM209.8 256.2L344 121.9 390.1 168 255.8 302.2c-2.9 2.9-6.5 5-10.4 6.1l-58.5 16.7 16.7-58.5c1.1-3.9 3.2-7.5 6.1-10.4zM373.1 25L175.8 222.2c-8.7 8.7-15 19.4-18.3 31.1l-28.6 100c-2.4 8.4-.1 17.4 6.1 23.6s15.2 8.5 23.6 6.1l100-28.6c11.8-3.4 22.5-9.7 31.1-18.3L487 138.9c28.1-28.1 28.1-73.7 0-101.8L474.9 25C446.8-3.1 401.2-3.1 373.1 25zM88 64C39.4 64 0 103.4 0 152V424c0 48.6 39.4 88 88 88H360c48.6 0 88-39.4 88-88V312c0-13.3-10.7-24-24-24s-24 10.7-24 24V424c0 22.1-17.9 40-40 40H88c-22.1 0-40-17.9-40-40V152c0-22.1 17.9-40 40-40H200c13.3 0 24-10.7 24-24s-10.7-24-24-24H88z" />
+                                </svg>
+                              </a>
+                              <a href="#" onclick="supprimerLangue('<%= users.email %>','<%= users.langues[i]._id %>')">
+                                <svg xmlns="http://www.w3.org/2000/svg" height="16" width="14" viewBox="0 0 448 512">
+                                  <path fill="#2d68cd"
+                                    d="M135.2 17.7L128 32H32C14.3 32 0 46.3 0 64S14.3 96 32 96H416c17.7 0 32-14.3 32-32s-14.3-32-32-32H320l-7.2-14.3C307.4 6.8 296.3 0 284.2 0H163.8c-12.1 0-23.2 6.8-28.6 17.7zM416 128H32L53.2 467c1.6 25.3 22.6 45 47.9 45H346.9c25.3 0 46.3-19.7 47.9-45L416 128z" />
+                                </svg>
+                              </a>
+                            </p>
+                            <p style="color: #aaa;">
+                              <%= users.langues[i].niveau %>
+                            </p>
+                            <hr>
+                          </div>
+                          <%}%>
+                            <%}%>
+                        </div>
+
+                        <form id="ajout_langue" method="post" action="/langue/ajout_langue" class="modal"
+                          enctype="application/x-www-form-urlencoded">
+                          <div class="modal-content">
+                            <span class="close">&times;</span>
+
+                            <h2>Add a language :</h2>
+
+                            <input type="text" id="email_ajout_langue" name="email_ajout_langue"
+                              value='<%= users.email %>' hidden />
+
+                            <label for="langue" class="form-label">Language </label>
+                            <input type="text" id="langue" name="langue" class="form-control" required />
+
+                            <label for="niveau" class="form-label">Language proficiency</label>
+                            <select id="niveau" name="niveau" class="form-select" required>
+                              <option value="" disabled selected>Please select</option>
+                              <option value="Notions">Basic knowledge</option>
+                              <option value="Limited professional proficiency">Limited professional proficiency</option>
+                              <option value="Professional proficiency">Professional proficiency</option>
+                              <option value="Full professional proficiency">Full professional proficiency</option>
+                              <option value="Bilingual or native language">Bilingual or native language</option>
+                            </select>
+
+                            <button type="submit" class="btn btn-primary my-3">Save</button>
+                          </div>
+                        </form>
+
+                        <form id="update_langue" method="post" action="/langue/update_langue" class="modal"
+                          enctype="application/x-www-form-urlencoded">
+                          <div class="modal-content">
+                            <span class="close">&times;</span>
+
+                            <h2>Edit a language :</h2>
+                            <input type="text" id="id_langue" name="id_langue" class="form-control" hidden />
+                            <input type="text" id="email_update_langue" name="email_update_langue"
+                              value='<%= users.email %>' hidden />
+
+                            <label for="langue_update" class="form-label">Language </label>
+                            <input type="text" id="langue_update" name="langue_update" class="form-control" required />
+
+                            <label for="niveau_update" class="form-label">Language proficiency</label>
+                            <select class="form-select" id="niveau_update" name="niveau_update" required>
+                              <option value="" disabled selected>Please select</option>
+                              <option value="Notions">Basic knowledge</option>
+                              <option value="Limited professional proficiency">Limited professional proficiency</option>
+                              <option value="Professional proficiency">Professional proficiency</option>
+                              <option value="Full professional proficiency">Full professional proficiency</option>
+                              <option value="Bilingual or native language">Bilingual or native language</option>
+                            </select>
+
+                            <button type="submit" class="btn btn-primary my-3">Enregistrer</button>
+                          </div>
+                        </form>
+                </section><!-- End Langue Section -->
+
+                <script src="/js/certifications.js"></script>
+                <!-- ======= Certification Section ======= -->
+                <section id="about" class="about">
+                  <div class="container">
+
+                    <div class="section-title">
+                      <h2>Licenses and certifications
+                        <a href="#" onclick="ajouterCertification()">
+                          <svg xmlns="http://www.w3.org/2000/svg" height="16" width="16" viewBox="0 0 448 512">
+                            <path fill="#295cae"
+                              d="M64 32C28.7 32 0 60.7 0 96V416c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V96c0-35.3-28.7-64-64-64H64zM200 344V280H136c-13.3 0-24-10.7-24-24s10.7-24 24-24h64V168c0-13.3 10.7-24 24-24s24 10.7 24 24v64h64c13.3 0 24 10.7 24 24s-10.7 24-24 24H248v64c0 13.3-10.7 24-24 24s-24-10.7-24-24z" />
+                          </svg>
+                        </a>
+                      </h2>
+                    </div>
+
+                    <% if(users.certifications.length> 0 ){%>
+                      <% for(var i=0 ; i < users.certifications.length; i++) {%>
+                        <div class="my-3">
+                          <p><strong>
+                              <%= users.certifications[i].certificat %>
+                            </strong>
+                            <a href="#"
+                              onclick="modifierCertification('<%= users.certifications[i]._id %>','<%= users.certifications[i].certificat %>','<%= users.certifications[i].plateforme %>','<%= users.certifications[i].code %>','<%= users.certifications[i].date %>')">
+                              <svg xmlns="http://www.w3.org/2000/svg" height="16" width="16" viewBox="0 0 512 512">
+                                <path fill="#2d68cd"
+                                  d="M441 58.9L453.1 71c9.4 9.4 9.4 24.6 0 33.9L424 134.1 377.9 88 407 58.9c9.4-9.4 24.6-9.4 33.9 0zM209.8 256.2L344 121.9 390.1 168 255.8 302.2c-2.9 2.9-6.5 5-10.4 6.1l-58.5 16.7 16.7-58.5c1.1-3.9 3.2-7.5 6.1-10.4zM373.1 25L175.8 222.2c-8.7 8.7-15 19.4-18.3 31.1l-28.6 100c-2.4 8.4-.1 17.4 6.1 23.6s15.2 8.5 23.6 6.1l100-28.6c11.8-3.4 22.5-9.7 31.1-18.3L487 138.9c28.1-28.1 28.1-73.7 0-101.8L474.9 25C446.8-3.1 401.2-3.1 373.1 25zM88 64C39.4 64 0 103.4 0 152V424c0 48.6 39.4 88 88 88H360c48.6 0 88-39.4 88-88V312c0-13.3-10.7-24-24-24s-24 10.7-24 24V424c0 22.1-17.9 40-40 40H88c-22.1 0-40-17.9-40-40V152c0-22.1 17.9-40 40-40H200c13.3 0 24-10.7 24-24s-10.7-24-24-24H88z" />
+                              </svg>
+                            </a>
+                            <a href="#"
+                              onclick="supprimerCertification('<%= users.email %>','<%= users.certifications[i]._id %>')">
+                              <svg xmlns="http://www.w3.org/2000/svg" height="16" width="14" viewBox="0 0 448 512">
+                                <path fill="#2d68cd"
+                                  d="M135.2 17.7L128 32H32C14.3 32 0 46.3 0 64S14.3 96 32 96H416c17.7 0 32-14.3 32-32s-14.3-32-32-32H320l-7.2-14.3C307.4 6.8 296.3 0 284.2 0H163.8c-12.1 0-23.2 6.8-28.6 17.7zM416 128H32L53.2 467c1.6 25.3 22.6 45 47.9 45H346.9c25.3 0 46.3-19.7 47.9-45L416 128z" />
+                              </svg>
+                            </a>
+                          </p>
+                          <p>
+                            <%= users.certifications[i].plateforme %>
+                          </p>
+                          <p>
+                            <%= users.certifications[i].code%>
+                          </p>
+                          <p>Date of obtaining the certificate: <%=
+                              users.certifications[i].date.toLocaleDateString('fr-FR')%>
+                          </p>
+                        </div>
+                        <%}%>
+                          <%}%>
+                  </div>
+
+                  <form id="ajout_certification" method="post" action="/certification/ajout_certification" class="modal"
+                    enctype="application/x-www-form-urlencoded">
+                    <div class="modal-content">
+                      <span class="close">&times;</span>
+
+                      <h2>Add a certificate</h2>
+
+                      <input type="text" id="email_ajout_certification" name="email_ajout_certification"
+                        value='<%= users.email %>' hidden />
+                      <label for="certificat" class="form-label">Certificate</label>
+                      <input type="text" id="certificat" name="certificat" class="form-control" required />
+
+                      <label for="plateforme" class="form-label">Platform</label>
+                      <input type="text" id="plateforme" name="plateforme" class="form-control" required />
+
+                      <label for="code" class="form-label">Code certificate</label>
+                      <input type="text" id="code" name="code" class="form-control" required />
+
+                      <label for="date_certif" class="form-label">Certification attainment date</label>
+                      <input type="date" id="date_certif" name="date_certif" class="form-control" required />
+
+                      <button type="submit" class="btn btn-primary my-3">Save</button>
+                    </div>
+                  </form>
+
+                  <form id="update_certification" method="post" action="/certification/update_certification" class="modal"
+                    enctype="application/x-www-form-urlencoded">
+                    <div class="modal-content">
+                      <span class="close">&times;</span>
+
+                      <h2>Edit a certification :</h2>
+                      <input type="text" id="id_certification" name="id_certification" class="form-control" hidden />
+                      <input type="text" id="email_update_certification" name="email_update_certification"
+                        value='<%= users.email %>' hidden />
+
+                      <label for="certificat_update" class="form-label">Certificate</label>
+                      <input type="text" id="certificat_update" name="certificat_update" class="form-control"
+                        required />
+
+                      <label for="plateforme_update" class="form-label">Platform </label>
+                      <input type="text" id="plateforme_update" name="plateforme_update" class="form-control"
+                        required />
+
+                      <label for="code_update" class="form-label">Code certificate</label>
+                      <input type="text" id="code_update" name="code_update" class="form-control" required />
+
+                      <label for="date_certif_update" class="form-label">Certification attainment date</label>
+                      <input type="date" id="date_certif_update" name="date_certif_update" class="form-control"
+                        required />
+
+                      <button type="submit" class="btn btn-primary my-3">Save</button>
+                    </div>
+                  </form>
+                </section><!-- End Certification Section -->
+
+                <script src="/js/clubs.js"></script>
+                <!-- ======= Club Section ======= -->
+                <section id="about" class="about">
+                  <div class="container">
+
+                    <div class="section-title">
+                      <h2>Community life
+                        <a href="#" onclick="ajouterClub()">
+                          <svg xmlns="http://www.w3.org/2000/svg" height="16" width="16" viewBox="0 0 448 512">
+                            <path fill="#295cae"
+                              d="M64 32C28.7 32 0 60.7 0 96V416c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V96c0-35.3-28.7-64-64-64H64zM200 344V280H136c-13.3 0-24-10.7-24-24s10.7-24 24-24h64V168c0-13.3 10.7-24 24-24s24 10.7 24 24v64h64c13.3 0 24 10.7 24 24s-10.7 24-24 24H248v64c0 13.3-10.7 24-24 24s-24-10.7-24-24z" />
+                          </svg>
+                        </a>
+                      </h2>
+                    </div>
+
+                    <% if(users.clubs.length> 0 ){%>
+                      <% for(var i=0 ; i < users.clubs.length; i++) {%>
+                        <div class="my-3">
+                          <p><strong>
+                              <%= users.clubs[i].nom %>
+                            </strong>
+                            <a href="#"
+                              onclick="modifierClub('<%= users.clubs[i]._id %>','<%= users.clubs[i].nom %>','<%= users.clubs[i].fonction %>','<%= users.clubs[i].actuel %>','<%= users.clubs[i].debut %>','<%= users.clubs[i].fin %>', '<%= users.clubs[i].description %>')">
+                              <svg xmlns="http://www.w3.org/2000/svg" height="16" width="16" viewBox="0 0 512 512">
+                                <path fill="#2d68cd"
+                                  d="M441 58.9L453.1 71c9.4 9.4 9.4 24.6 0 33.9L424 134.1 377.9 88 407 58.9c9.4-9.4 24.6-9.4 33.9 0zM209.8 256.2L344 121.9 390.1 168 255.8 302.2c-2.9 2.9-6.5 5-10.4 6.1l-58.5 16.7 16.7-58.5c1.1-3.9 3.2-7.5 6.1-10.4zM373.1 25L175.8 222.2c-8.7 8.7-15 19.4-18.3 31.1l-28.6 100c-2.4 8.4-.1 17.4 6.1 23.6s15.2 8.5 23.6 6.1l100-28.6c11.8-3.4 22.5-9.7 31.1-18.3L487 138.9c28.1-28.1 28.1-73.7 0-101.8L474.9 25C446.8-3.1 401.2-3.1 373.1 25zM88 64C39.4 64 0 103.4 0 152V424c0 48.6 39.4 88 88 88H360c48.6 0 88-39.4 88-88V312c0-13.3-10.7-24-24-24s-24 10.7-24 24V424c0 22.1-17.9 40-40 40H88c-22.1 0-40-17.9-40-40V152c0-22.1 17.9-40 40-40H200c13.3 0 24-10.7 24-24s-10.7-24-24-24H88z" />
+                              </svg>
+                            </a>
+                            <a href="#" onclick="supprimerClub('<%= users.email %>','<%= users.clubs[i]._id %>')">
+                              <svg xmlns="http://www.w3.org/2000/svg" height="16" width="14" viewBox="0 0 448 512">
+                                <path fill="#2d68cd"
+                                  d="M135.2 17.7L128 32H32C14.3 32 0 46.3 0 64S14.3 96 32 96H416c17.7 0 32-14.3 32-32s-14.3-32-32-32H320l-7.2-14.3C307.4 6.8 296.3 0 284.2 0H163.8c-12.1 0-23.2 6.8-28.6 17.7zM416 128H32L53.2 467c1.6 25.3 22.6 45 47.9 45H346.9c25.3 0 46.3-19.7 47.9-45L416 128z" />
+                              </svg>
+                            </a>
+                          </p>
+                          <% if(users.clubs[i].fonction==="Autre" ){ %>
+                            <p>Function in the club: Staff</p>
+                            <% }else{ %>
+                              <p>Function in the club: <%= users.clubs[i].fonction %>
+                              </p>
+                              <%}%>
+
+                                <% if(users.clubs[i].actuel===0) {%>
+                                  <p>From <%= users.clubs[i].debut.toLocaleDateString('fr-FR')%> to <%=
+                                        users.clubs[i].fin.toLocaleDateString('fr-FR')%>
+                                  </p>
+                                  <% }else{ %>
+                                    <p>From <%= users.clubs[i].debut.toLocaleDateString('fr-FR')%> so far</p>
+                                    <%}%>
+                                      <p>
+                                        <%= users.clubs[i].description%>
+                                      </p>
+                        </div>
+                        <%}%>
+                          <%}%>
+                  </div>
+
+                  <form id="ajout_club" method="post" action="/club/ajout_club" class="modal"
+                    enctype="application/x-www-form-urlencoded">
+                    <div class="modal-content">
+                      <span class="close">&times;</span>
+
+                      <h2>Add a club experience :</h2>
+                      <input type="text" id="email_ajout_club" name="email_ajout_club" value='<%= users.email %>'
+                        hidden />
+
+                      <label for="nom_club" class="form-label">Club</label>
+                      <input type="text" id="nom_club" name="nom_club" class="form-control" required />
+
+                      <label for="fonction" class="form-label">Function </label>
+                      <select id="fonction" name="fonction" class="form-select" onchange="toggleFunction()" required>
+                        <option value="" disabled selected>Please select</option>
+                        <option value="member">Member</option>
+                        <option value="staff">Staff</option>
+                      </select>
+
+                      <label for="fonctionStaff" class="form-label">Role in the club committee</label>
+                      <select id="fonctionStaff" name="fonctionStaff" class="form-select" required>
+                        <option value="" disabled selected>Please select</option>
+                        <option value="President">President</option>
+                        <option value="Vice President">Vice President</option>
+                        <option value="Treasurer">Treasurer</option>
+                        <option value="General Secretary">General Secretary</option>
+                        <option value="Communication Manager">Communication Manager</option>
+                        <option value="Event Manager">Event Manager</option>
+                        <option value="Other">Other..</option>
+                      </select>
+
+
+                      <script>
+                        function toggleFunction() {
+                          var fonction = document.getElementById("fonction");
+                          var fonctionStaff = document.getElementById("fonctionStaff");
+
+                          if (fonction.value === "membre") {
+                            fonctionStaff.disabled = true;
+                            fonctionStaff.value = "";
+                          } else {
+                            fonctionStaff.disabled = false;
+                          }
+                        }
+                      </script>
+
+                      <div class="my-3">
+                        <input type="checkbox" id="club_actuel" name="club_actuel" class="me-3" value=""
+                          onchange="disableActuel()"><label> I currently hold this position in the club</label>
+                      </div>
+
+                      <label for="debut_club" class="form-label">Start date</label>
+                      <input type="date" id="debut_club" name="debut_club" class="form-control" required />
+
+                      <label for="fin_club" class="form-label">End date</label>
+                      <input type="date" id="fin_club" name="fin_club" class="form-control" required />
+
+                      <label for="description_club" class="form-label">Description</label>
+                      <textarea class="form-control" id="description_club" name="description_club" rows="3"
+                        required></textarea>
+
+                      <button type="submit" class="btn btn-primary my-3">Save</button>
+                    </div>
+                  </form>
+
+                  <form id="update_club" method="post" action="/club/update_club" class="modal"
+                    enctype="application/x-www-form-urlencoded">
+                    <div class="modal-content">
+                      <span class="close">&times;</span>
+
+                      <h2>Edit a club experience :</h2>
+                      <input type="text" id="id_club" name="id_club" class="form-control" hidden />
+                      <input type="text" id="email_update_club" name="email_update_club" value='<%= users.email %>'
+                        hidden />
+
+                      <label for="nom_update" class="form-label">Club</label>
+                      <input type="text" id="nom_update" name="nom_update" class="form-control" required />
+
+                      <label for="fonction_update" class="form-label">Function </label>
+                      <select id="fonction_update" name="fonction_update" class="form-select"
+                        onchange="toggleFunctionUpdate()" required>
+                        <option value="" disabled selected>Please select</option>
+                        <option value="member">Member</option>
+                        <option value="staff">Staff</option>
+                      </select>
+
+                      <label for="fonctionStaff_update" class="form-label">Role in the club committee</label>
+                      <select id="fonctionStaff_update" name="fonctionStaff_update" class="form-select" required>
+                        <option value="" disabled selected>Please select</option>
+                        <option value="President">President</option>
+                        <option value="Vice President">Vice President</option>
+                        <option value="Treasurer">Treasurer</option>
+                        <option value="General Secretary">General Secretary</option>
+                        <option value="Communication Manager">Communication Manager</option>
+                        <option value="Event Manager">Event Manager</option>
+                        <option value="Other">Other..</option>
+                      </select>
+
+                      <script>
+                        function toggleFunctionUpdate() {
+                          var fonction = document.getElementById("fonction_update");
+                          var fonctionStaff = document.getElementById("fonctionStaff_update");
+
+                          if (fonction.value === "membre") {
+                            fonctionStaff.disabled = true;
+                            fonctionStaff.value = "";
+                          } else {
+                            fonctionStaff.disabled = false;
+                          }
+                        }
+                      </script>
+
+                      <div class="my-3">
+                        <input type="checkbox" id="club_actuel_update" name="club_actuel_update" class="me-3" value=""
+                          onchange="disableActuelUpdate()"><label> I currently hold this position in the club</label>
+                      </div>
+
+                      <label for="debut_club_update" class="form-label">Start date</label>
+                      <input type="date" id="debut_club_update" name="debut_club_update" class="form-control"
+                        required />
+
+                      <label for="fin_club_update" class="form-label">End date</label>
+                      <input type="date" id="fin_club_update" name="fin_club_update" class="form-control" required />
+
+                      <label for="description_club_update" class="form-label">Description</label>
+                      <textarea class="form-control" id="description_club_update" name="description_club_update"
+                        rows="3" required></textarea>
+
+                      <button type="submit" class="btn btn-primary my-3">Save</button>
+                    </div>
+                  </form>
+                </section><!-- End Club Section -->
+          </div>
+
+          <script>
+            function updateInfos(id, nom, prenom, telephone, adresse, pays, date_anniversaire, titre, description) {
+              var modal = document.getElementById("update_infos");
+
+              window.onclick = function (event) {
+                if (event.target == modal) {
+                  modal.style.display = "none";
+                }
+              }
+              modal.style.display = "block";
+              document.getElementById("userID").value = id;
+              document.getElementById("userName").value = nom;
+              document.getElementById("userLastName").value = prenom;
+              document.getElementById("userPhone").value = telephone;
+              document.getElementById("userAdresse").value = adresse;
+              document.getElementById("userPays").value = pays;
+              document.getElementById("userBirth").value = new Date(date_anniversaire).toISOString().substring(0, 10);
+              document.getElementById("usertitle").value = titre;
+              document.getElementById("userAbout").value = description;
+
+            }
+          </script>
+          <div class="col-lg-4">
+            <div class="portfolio-info my-3">
+              <h3>Personal informations</h3>
+
+              <ul>
+                <li><strong>Email</strong>: <%= users.email %>
+                </li>
+                <li><strong>Address</strong>: <%= users.adresse %>, <%= users.pays %>
+                </li>
+                <li><strong>Birth date</strong>: <%= users.date_anniversaire.toLocaleDateString('fr-FR') %>
+                </li>
+                <li><strong>Phone number</strong>: <%= users.telephone %>
+                </li>
+              </ul>
+              <input type="button" value="Edit Infos" class="btn btn-primary"
+                onclick="updateInfos('<%=users._id %>','<%=users.nom %>','<%=users.prenom %>','<%=users.telephone %>','<%=users.adresse %>','<%=users.pays %>','<%=users.date_anniversaire %>','<%=users.titre %>','<%=users.description %>')">
+
+              <form id="update_infos" class="modal" method="post" action="/info/update_infos" enctype="multipart/form-data">
+                <div class="modal-content">
+                  <span class="close">&times;</span>
+
+                  <h3>Edit your personal informations :</h3>
+
+                  <input type="text" id="userID" name="userID" hidden class="form-control" />
+
+                  <label for="userProfil" class="form-label">Profil picture :</label>
+                  <input type="file" id="userProfil" name="userProfil" class="form-control" />
+
+                  <label for="userName" class="form-label">Last name :</label>
+                  <input type="text" id="userName" name="userName" class="form-control" required />
+
+                  <label for="userLastName" class="form-label">First name :</label>
+                  <input type="text" id="userLastName" name="userLastName" class="form-control" required />
+
+                  <label for="userPhone" class="form-label">Phone number :</label>
+                  <input type="text" id="userPhone" name="userPhone" class="form-control" required />
+
+                  <div class="row">
+                    <div class="col">
+                      <label for="userAdresse" class="form-label">Address :</label>
+                      <input type="text" id="userAdresse" name="userAdresse" class="form-control" required />
+                    </div>
+                    <div class="col">
+                      <label for="userPays" class="form-label">Country :</label>
+                      <input type="text" id="userPays" name="userPays" class="form-control" required />
+                    </div>
+                  </div>
+                  <label for="userBirth" class="form-label">Birth date :</label>
+                  <input type="date" id="userBirth" name="userBirth" class="form-control" required />
+
+                  <label for="usertitle" class="form-label">Profil title :</label>
+                  <input type="text" id="usertitle" name="usertitle" class="form-control" required />
+
+                  <label for="userAbout" class="form-label">Description :</label>
+                  <textarea class="form-control" id="userAbout" name="userAbout" rows="5"></textarea>
+
+                  <button type="submit" class="btn btn-primary my-3">Enregistrer</button>
+                </div>
+              </form>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
+      class="bi bi-arrow-up-short"></i></a>
+
+  <script src="/vendor2/purecounter/purecounter_vanilla.js"></script>
+  <script src="/vendor2/aos/aos.js"></script>
+  <script src="/vendor2/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="/vendor2/glightbox/js/glightbox.min.js"></script>
+  <script src="/vendor2/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="/vendor2/swiper/swiper-bundle.min.js"></script>
+  <script src="/vendor2/typed.js/typed.umd.js"></script>
+  <script src="/vendor2/waypoints/noframework.waypoints.js"></script>
+  <script src="/vendor2/php-email-form/validate.js"></script>
+
+  <script src="/js/main2.js"></script>
+</body>
+
+</html>

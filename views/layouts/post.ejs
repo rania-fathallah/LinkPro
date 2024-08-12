@@ -1,0 +1,16 @@
+<div class="post">
+    <div class="post-profile-info">
+        <img src="<%= postData.author.profilePhoto %>" alt="Profile Photo" class="post-profile-photo">
+        <span class="post-profile-name"><%= postData.author.name %></span>
+    </div>
+    <div class="post-content">
+        <p><%= postData.content %></p>
+    </div>
+    <!-- Photo -->
+    <img src="<%= postData.content_photo.data %>" alt="Post Photo">
+    <!-- Video -->
+    <!-- Add your video element here if needed -->
+    <!-- Like Button -->
+    <label for="like-btn" class="like--btn"><img src="/img/like1.png"></label>
+    <button class="like-btn" id="like-btn">Like</button>
+</div>
