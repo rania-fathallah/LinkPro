@@ -5,3 +5,6 @@ I built a LinkedIn clone using the Express framework as a personal project to ex
 
 ## Run the server :
 	npm run start
+
+ 
+### There is a video showing the project in details
